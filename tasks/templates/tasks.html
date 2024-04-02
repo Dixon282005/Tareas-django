@@ -1,0 +1,28 @@
+{% extends 'layouts/base.html' %}
+{% block content %}
+  <h1 class="text-center display-3 py-5">Pending Tasks</h1>
+  <main class="container">
+    <div class="row">
+      <div class="col-md-6 offset-md-3">
+        {% for taski in task %}
+        <ul class="list-group">
+          <li class="list-group-item">
+            <a href="{% url 'task_details' taski.id %}" class="text-decoration-none ">
+              <header class="d-flex justify-content-between">
+              {% if taski.important %}
+                <h1 class="fw-bold text-success">{{ taski.title }}</h1>
+              {% else %}
+                <h1 class="fw-bold">{{ taski.title }}</h1>
+              {% endif %}
+              <p>{{ taski.user.username }}</p>
+            </header>
+            </a>
+            <p>{{ taski.description }}</p>
+            
+          </li>
+        </ul>
+        {% endfor %}
+      </div>
+    </div>
+  </main>
+{% endblock %}
