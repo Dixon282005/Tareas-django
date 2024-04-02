@@ -21,6 +21,7 @@ from  tasks import views ##Importamos las vistas de la otra app
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path("", views.home, name = "home" ),
     path("home/", views.home, name = "home" ),
     path("home2/", views.home2, name = "home2" ),
     path("signup/", views.signup, name = "signup" ),
